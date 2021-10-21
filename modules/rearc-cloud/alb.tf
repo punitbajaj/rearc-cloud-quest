@@ -35,17 +35,6 @@ resource "aws_lb_target_group" "application_http_3000" {
   }
 }
 
-# resource "aws_lb_listener" "app-http-3000" {
-#   load_balancer_arn = aws_lb.application-lb.arn
-#   port              = 3000
-#   protocol          = "HTTP"
-
-#   default_action {
-#     type             = "forward"
-#     target_group_arn = aws_lb_target_group.application-http-3000.arn
-#   }
-# }
-
 resource "aws_lb_listener" "app_https_3000" {
   load_balancer_arn = aws_lb.application_lb.arn
 
@@ -61,3 +50,8 @@ resource "aws_lb_listener" "app_https_3000" {
   }
 }
 
+resource "aws_lb_target_group_attachment" "alb_to_instance" {
+  target_group_arn = aws_lb_target_group.application_http_3000.arn
+  target_id        = aws_instance.test-instance.id
+  port             = 3000
+}

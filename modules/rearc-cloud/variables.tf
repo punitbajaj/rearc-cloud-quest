@@ -31,6 +31,6 @@ variable "create_public_ip" {
 variable "key_name" {
     description = "key name to be used to create the instance"
     type = string  
-    default = "punit.pem"
+    default = "punit"
 }
 

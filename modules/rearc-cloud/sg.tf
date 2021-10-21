@@ -16,17 +16,18 @@ resource "aws_security_group" "rearc_test" {
       self             = false 
     },
     {
-      description  = "ICMP from the internet"  
-      from_port    = -1
-      to_port      = -1
-      protocol     = "icmp"
-      cidr_blocks  = ["0.0.0.0/0"]
-      ipv6_cidr_blocks = ["::/0"]
+      cidr_blocks      = [
+      "0.0.0.0/0",
+      ]
+      description      = ""
+      from_port        = 0
+      ipv6_cidr_blocks = []
       prefix_list_ids  = []
+      protocol         = "-1"
       security_groups  = []
-      self             = false 
-      
-  }
+      self             = false
+      to_port          = 0
+    }
   ]
 
   egress = [
