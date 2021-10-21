@@ -1,5 +1,7 @@
 # rearc-cloud-quest
 
+Note: code written in this repo is for terraform version 0.14.9
+
 Steps to run the app on AWS:
 
     1. Make sure you change the `provider.tf` file at location `apps/rearc-cloud/` to point to an existing bucker in your account.
